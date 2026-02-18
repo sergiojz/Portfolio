@@ -1,49 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Sergio</title>
+    <title>Portafolio Sergio | Desarrollador Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/base.css">
 </head>
+
 <body>
-    <header>
-            <h1>Portfolio Sergio</h1>
-            <p>Desarrollador Web</p>
-            <nav>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">Sergio Dev</div>
+            <nav class="nav">
                 <ul>
                     <li><a href="#about">Sobre mí</a></li>
                     <li><a href="#projects">Proyectos</a></li>
                     <li><a href="#contact">Contacto</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">
+                            <i class='bx bx-moon'></i>
+                        </button>
+                    </li>
                 </ul>
-            
+            </nav>
+        </div>
     </header>
-    <section id="projects">
-        <h2>Mis Proyectos</h2>
-        <article class="proyecto-card">
-            <h3>Proyecto 1</h3>
-            <img src="assets/images/Logo.png" alt="Imagen del Proyecto 1">
-            <p>Este es un proyecto de ejemplo.</p>
-            <a href="#">Ver más</a>
 
-        </article>
-        <article class="proyecto-card">
-            <h3>Proyecto 2</h3>
-            <img src="assets/images/Logo.png" alt="Imagen del Proyecto 2">
-            <p>Este es otro proyecto de ejemplo.</p>
-            <a href="#">Ver más</a>
-        </article>
-        <article class="proyecto-card">
-            <h3>Proyecto 3</h3>
-            <img src="assets/images/Logo.png" alt="Imagen del Proyecto 3">
-            <p>Este es un tercer proyecto de ejemplo.</p>
-            <a href="#">Ver más</a>
-        </article>
-        
-        <p>Soy un desarrollador web con experiencia en HTML, CSS y JavaScript. Me apasiona crear sitios web atractivos y funcionales.</p>
-    </section>
-    <footer id="contact">
-        <p>Contacto: sergiojimenezutrera@gmail.com</p>
+    <main>
+        <section id="about" class="hero section">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <h1>Hola, soy Sergio</h1>
+                    <p class="subtitle">Desarrollador Web Frontend</p>
+                    <p class="description">
+                        Especializado en HTML, CSS y JavaScript. Me apasiona crear experiencias digitales
+                        atractivas, funcionales y optimizadas para el usuario. Siempre estoy aprendiendo nuevas
+                        tecnologías.
+                    </p>
+
+                    <div class="social-buttons">
+                        <a href="https://www.linkedin.com/in/sergio-jim%C3%A9nez-015202374/" target="_blank" class="social-btn linkedin">
+                            <i class='bx bxl-linkedin-square'></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/sergiojz" target="_blank" class="social-btn github">
+                            <i class='bx bxl-github'></i> GitHub
+                        </a>
+                    </div>
+
+                    <div class="cta-group">
+                        <a href="#projects" class="btn">Ver mi trabajo</a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="assets/images/fotoMia.jpg"
+                        alt="Foto de perfil de Sergio">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section bg-light">
+            <div class="container">
+                <h2 class="reveal">Mis Proyectos</h2>
+                <div class="projects-grid" id="projects-container">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h3>Hablemos</h3>
+            <p>¿Tienes una idea en mente? Contáctame.</p>
+            <a href="mailto:sergiojimenezutrera@gmail.com" class="email-link">sergiojimenezutrera@gmail.com</a>
+            <p class="copyright">&copy; 2024 Sergio Jiménez. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <script>
+        const themeBtn = document.getElementById('theme-toggle');
+        const icon = themeBtn.querySelector('i');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('bx-moon', 'bx-sun');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('bx-moon', 'bx-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('bx-sun', 'bx-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
