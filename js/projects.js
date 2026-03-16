@@ -1,42 +1,42 @@
 const proyectos = [
-    {
-        titulo: "Pastelería Delicias",
-        descripcion: "E-commerce Fullstack con API REST funcional. Incluye gestión de inventario, carrito de compras persistente y sistema de procesamiento de pedidos.",
-        imagen: "assets/images/Logo.png", 
-        tecnologias: ["Java", "Spring Boot", "MySQL", "JavaScript"],
-        link: "https://github.com/sergiojz/PasteleriaDelicias" // Aquí puedes poner el link a tu GitHub cuando lo subas
-    },
-    {
-        titulo: "Antojitos Mexican Curious",
-        descripcion: "Sistema TPV (Punto de Venta) para restaurante, automatizando la gestión de stock y el registro de ventas diarias.",
-        imagen: "assets/images/Logo.png", 
-        tecnologias: ["Java", "SQLite"],
-        link: "#"
-    },
-    {
-        titulo: "Gestor de Tareas Pro",
-        descripcion: "Aplicación de productividad con arquitectura modular y persistencia de datos en el cliente mediante LocalStorage.",
-        imagen: "assets/images/Logo.png",
-        tecnologias: ["JavaScript", "DOM", "CSS3"],
-        link: "#"
-    }
+  {
+    titulo: "Pastelería Delicias",
+    descripcion:
+      "E-commerce Fullstack con API REST funcional. Incluye gestión de inventario, carrito de compras persistente y sistema de procesamiento de pedidos.",
+    imagen: "assets/images/LogoPasteleria.png",
+    tecnologias: ["Java", "Spring Boot", "MySQL", "JavaScript"],
+    link: "https://github.com/sergiojz/PasteleriaDelicias",
+  },
+  {
+    titulo: "Antojitos Mexican Curious",
+    descripcion:
+      "Sistema TPV (Punto de Venta) para restaurante, automatizando la gestión de stock y el registro de ventas diarias.",
+    imagen: "assets/images/Logo.png",
+    tecnologias: ["Java", "SQLite"],
+    link: "#",
+  },
+  {
+    titulo: "Sistema de Gestión de Inventario",
+    descripcion:
+      "Motor backend para el control de stock y almacén. Implementa lógica de negocio crítica para evitar rupturas de stock y gestión de proveedores.",
+    imagen: "assets/images/LogoInventory.png",
+    tecnologias: ["Java", "JDBC", "SQL", "Git"],
+    link: "https://github.com/sergiojz/GestionDeAlmacenamiento",
+  },
 ];
 
-// Función para renderizar los proyectos
 function cargarProyectos() {
-    const contenedor = document.getElementById('projects-container');
-    if (!contenedor) return;
-    
-    // 1. Limpieza total para evitar duplicados
-    contenedor.innerHTML = "";
+  const contenedor = document.getElementById("projects-container");
+  if (!contenedor) return;
 
-    // 2. Generar el contenido
-    proyectos.forEach(proyecto => {
-        const tagsHTML = proyecto.tecnologias
-            .map(tec => `<span class="tag">${tec}</span>`)
-            .join('');
+  contenedor.innerHTML = "";
 
-        const cardHTML = `
+  proyectos.forEach((proyecto) => {
+    const tagsHTML = proyecto.tecnologias
+      .map((tec) => `<span class="tag">${tec}</span>`)
+      .join("");
+
+    const cardHTML = `
             <article class="project-card reveal">
                 <div class="card-image">
                     <img src="${proyecto.imagen}" alt="${proyecto.titulo}">
@@ -52,34 +52,34 @@ function cargarProyectos() {
             </article>
         `;
 
-        contenedor.innerHTML += cardHTML;
-    });
+    contenedor.innerHTML += cardHTML;
+  });
 
-    // 3. Lanzar la animación después de crear los elementos
-    initScrollAnimation();
+  initScrollAnimation();
 }
 
-// Lógica de animación profesional (Intersection Observer)
 function initScrollAnimation() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active');
-            }
-        });
-    }, { 
-        threshold: 0.1 
-    });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    },
+  );
 
-    const elementosARevelar = document.querySelectorAll('.reveal');
-    elementosARevelar.forEach(el => observer.observe(el));
+  const elementosARevelar = document.querySelectorAll(".reveal");
+  elementosARevelar.forEach((el) => observer.observe(el));
 }
 
-// Ejecución segura
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', cargarProyectos);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", cargarProyectos);
 } else {
-    cargarProyectos();
+  cargarProyectos();
 }
