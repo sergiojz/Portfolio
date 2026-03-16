@@ -1,23 +1,23 @@
 const proyectos = [
     {
-        titulo: "Antojitos Mexican Curious",
-        descripcion: "Un TPV para un restaurante mexicano, con funciones de gestion de productos y ventas.",
+        titulo: "Pastelería Delicias",
+        descripcion: "E-commerce Fullstack con API REST funcional. Incluye gestión de inventario, carrito de compras persistente y sistema de procesamiento de pedidos.",
         imagen: "assets/images/Logo.png", 
-        tecnologias: ["Java", "SQlite"],
+        tecnologias: ["Java", "Spring Boot", "MySQL", "JavaScript"],
+        link: "https://github.com/sergiojz/PasteleriaDelicias" // Aquí puedes poner el link a tu GitHub cuando lo subas
+    },
+    {
+        titulo: "Antojitos Mexican Curious",
+        descripcion: "Sistema TPV (Punto de Venta) para restaurante, automatizando la gestión de stock y el registro de ventas diarias.",
+        imagen: "assets/images/Logo.png", 
+        tecnologias: ["Java", "SQLite"],
         link: "#"
     },
     {
-        titulo: "App del Clima",
-        descripcion: "Aplicación que consume una API externa para mostrar el clima en tiempo real.",
+        titulo: "Gestor de Tareas Pro",
+        descripcion: "Aplicación de productividad con arquitectura modular y persistencia de datos en el cliente mediante LocalStorage.",
         imagen: "assets/images/Logo.png",
-        tecnologias: ["React", "API", "CSS"],
-        link: "#"
-    },
-    {
-        titulo: "Gestor de Tareas",
-        descripcion: "Una aplicación To-Do list con persistencia de datos en LocalStorage.",
-        imagen: "assets/images/Logo.png",
-        tecnologias: ["JavaScript", "DOM"],
+        tecnologias: ["JavaScript", "DOM", "CSS3"],
         link: "#"
     }
 ];
@@ -36,7 +36,6 @@ function cargarProyectos() {
             .map(tec => `<span class="tag">${tec}</span>`)
             .join('');
 
-        // Añadimos la clase 'reveal' para la animación profesional
         const cardHTML = `
             <article class="project-card reveal">
                 <div class="card-image">
@@ -65,10 +64,8 @@ function initScrollAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Si entra en el campo de visión, aparece
                 entry.target.classList.add('active');
             } else {
-                // Si sale del campo de visión (arriba o abajo), se esconde
                 entry.target.classList.remove('active');
             }
         });
