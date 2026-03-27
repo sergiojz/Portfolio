@@ -21,14 +21,14 @@ const proyectos = [
     {
         titulo: "Sistema Gestión Inventario",
         descripcion: "Motor backend para control de stock. Evita rupturas de stock y gestiona proveedores eficientemente.",
-        imagen: "assets/images/LogoInventory.png",
+        imagen: "assets/images/LogoAlmacenes.png",
         tecnologias: ["Java", "JDBC", "SQL"],
         link: "https://github.com/sergiojz/GestionDeAlmacenamiento",
     },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- 1. Theme Toggle Logic ---
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = themeBtn.querySelector('i');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeBtn.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
-        
+
         if (isDark) {
             themeIcon.classList.replace('bx-moon', 'bx-sun');
             localStorage.setItem('theme', 'dark');
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         proyectos.forEach((proyecto, index) => {
             const delayClass = `delay-${(index % 3 + 1) * 100}`;
-            
+
             const tagsHTML = proyecto.tecnologias
                 .map(tec => `<span class="tag">${tec}</span>`)
                 .join('');
@@ -132,13 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     };
-    
+
     // Give a small delay to ensure DOM is fully painted before observing
     setTimeout(initScrollAnimations, 100);
 
     // --- 5. Active Nav Link on Scroll ---
     const sections = document.querySelectorAll('section[id]');
-    
+
     const scrollActive = () => {
         const scrollY = window.pageYOffset;
 
@@ -148,13 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const sectionId = current.getAttribute('id');
             const link = document.querySelector(`.nav-menu a[href*=${sectionId}]`);
 
-            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                if(link) link.classList.add('active');
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                if (link) link.classList.add('active');
             } else {
-                if(link) link.classList.remove('active');
+                if (link) link.classList.remove('active');
             }
         });
     };
-    
+
     window.addEventListener('scroll', scrollActive);
 });
