@@ -13,7 +13,7 @@ const proyectos = [
       "Sistema TPV (Punto de Venta) para restaurante, automatizando la gestión de stock y el registro de ventas diarias.",
     imagen: "assets/images/Logo.png",
     tecnologias: ["Java", "SQLite"],
-    link: "#",
+    link: "https://github.com/sergiojz/MexicanTPV",
   },
   {
     titulo: "Sistema de Gestión de Inventario",
