@@ -62,6 +62,37 @@ body {
     line-height: 1.7;
     transition: background-color var(--transition-slow), color var(--transition-slow);
     overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Subtle background glowing orbs for entire page */
+body::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(80px);
+    pointer-events: none;
 }
 
 /* Base Elements */
@@ -234,34 +265,6 @@ h1, h2, h3, h4 {
     align-items: center;
     padding-top: 80px; /* Offset for header */
     position: relative;
-    overflow: hidden;
-}
-
-/* Subtle background glowing orb */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    z-index: -1;
-    filter: blur(60px);
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
-    z-index: -1;
-    filter: blur(60px);
 }
 
 .hero-grid {
